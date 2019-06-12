@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="215cfbae-f284-4601-94fd-a0f84e43f0e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UserSignUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/exceptions/InvalidPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/messaging/Conversation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/messaging/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/messaging/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/timing/Date.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/timing/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/user/UserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/User_signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/User_login_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/User_login_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/User_login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/User_login.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,10 +53,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserSignUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+            <state relative-caret-position="409">
+              <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#passwordIsStrong#0;class#UserSignUp#0" />
               </folding>
             </state>
           </provider>
@@ -247,6 +234,14 @@
               <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="user" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="Gmail_user" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Gmail_user" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="view" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -340,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559737751668</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="main client packages organized and template created.&#10;sign up and sign in fxml files initial design added.&#10;worked on user sign up.">
+      <created>1560318661373</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560318661373</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -405,7 +407,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Maven and git initialized&#10;MVC template created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Maven and git initialized&#10;MVC template created" />
+    <MESSAGE value="main client packages organized and template created.&#10;sign up and sign in fxml files initial design added.&#10;worked on user sign up." />
+    <option name="LAST_COMMIT_MESSAGE" value="main client packages organized and template created.&#10;sign up and sign in fxml files initial design added.&#10;worked on user sign up." />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/constant/Constable.java">
@@ -608,10 +611,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserSignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+        <state relative-caret-position="409">
+          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#passwordIsStrong#0;class#UserSignUp#0" />
           </folding>
         </state>
       </provider>
