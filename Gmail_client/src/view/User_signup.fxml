@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserSignUp">
+   <top>
+      <AnchorPane prefHeight="119.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="99.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="208.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="name_textField" promptText="first name" />
+            <TextField fx:id="lastName_textField" layoutX="10.0" layoutY="10.0" promptText="last name" />
+            <TextField fx:id="username_textField" layoutX="10.0" layoutY="41.0" promptText="username" />
+            <DatePicker fx:id="birthDay_datePicker" promptText="choose birthday" />
+            <PasswordField fx:id="password_passwordField" promptText="password" />
+            <Button fx:id="create_button" mnemonicParsing="false" text="create new account" />
+            <Label fx:id="invalid_label" text="invalid information" textFill="RED" visible="false" />
+         </children></VBox>
+   </center>
+</BorderPane>
