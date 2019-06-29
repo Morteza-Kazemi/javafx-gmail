@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="174.0" prefWidth="186.0" BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <AnchorPane prefHeight="113.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <AnchorPane prefHeight="174.0" prefWidth="146.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="113.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="273.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="phone_textField" promptText="phone number(optional)" />
+            <TextField fx:id="gender_textField" promptText="gender(optional)(Male/Female/Other)" />
+            <Button mnemonicParsing="false" onAction="#choosePhoto_button" text="chose pofile photo" />
+            <Button mnemonicParsing="false" onAction="#signUp_button" text="sign up!" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

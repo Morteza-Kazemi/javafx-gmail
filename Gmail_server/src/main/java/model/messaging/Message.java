@@ -1,6 +1,5 @@
 package model.messaging;
 
-
 import model.user.User;
 
 import java.io.File;

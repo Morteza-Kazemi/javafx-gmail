@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="215cfbae-f284-4601-94fd-a0f84e43f0e4" name="Default Changelist" comment="main client packages organized and template created.&#10;sign up and sign in fxml files initial design added.&#10;worked on user sign up.">
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/controller/UserSignUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/controller/serverIPSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/PageLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/exceptions/InvalidPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/messaging/Conversation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/messaging/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/messaging/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/timing/Date.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/timing/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/model/user/UserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/view/User_login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/view/User_signup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_client/src/view/setServerPort.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Gmail_server/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/serverIPSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gmail_server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Gmail_server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gmail_server/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gmail_server/src/main/java/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gmail_client/src/controller/serverIPSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Gmail_client/src/controller/serverIPSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserSignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserSignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/User_login_controller.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -256,6 +229,14 @@
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="Gmail_user" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Gmail_user" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="view" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -413,7 +394,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.152349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

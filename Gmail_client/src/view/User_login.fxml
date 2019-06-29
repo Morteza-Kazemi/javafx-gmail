@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.logIn">
    <center>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="158.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField promptText="uesrname" />
-            <PasswordField promptText="password" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="log in" />
+            <TextField fx:id="username_textField" promptText="uesrname" />
+            <PasswordField fx:id="password_passwordField" promptText="password" />
+            <Button fx:id="logIn_button" mnemonicParsing="false" onAction="#logIn" prefHeight="26.0" prefWidth="70.0" text="log in" />
             <Label prefHeight="30.0" prefWidth="106.0" text="wrong informaition" textFill="RED" visible="false" />
             <Label prefHeight="21.0" prefWidth="174.0" text="don't have an account ?" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" text="sign up!" />
+            <Button fx:id="signUp_button" mnemonicParsing="false" onAction="#signUp" prefHeight="31.0" prefWidth="74.0" text="sign up!" />
          </children>
       </VBox>
    </center>

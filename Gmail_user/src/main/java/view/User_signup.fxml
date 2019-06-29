@@ -25,7 +25,7 @@
             <TextField fx:id="username_textField" layoutX="10.0" layoutY="41.0" promptText="username" />
             <DatePicker fx:id="birthDay_datePicker" promptText="choose birthday" />
             <PasswordField fx:id="password_passwordField" promptText="password" />
-            <Button fx:id="create_button" mnemonicParsing="false" text="create new account" />
+            <Button fx:id="create_button" mnemonicParsing="false" onAction="#validate" text="create new account" />
             <Label fx:id="invalid_label" text="invalid information" textFill="RED" visible="false" />
          </children></VBox>
    </center>
