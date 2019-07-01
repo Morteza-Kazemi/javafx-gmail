@@ -1,6 +1,5 @@
 package model.messaging;
 
-
 import model.user.User;
 
 import java.io.File;
@@ -20,14 +19,6 @@ public class Message implements Serializable {
 
     public Message(MessageType messageType) {
         this.messageType = messageType;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public MessageType getMessageType() {

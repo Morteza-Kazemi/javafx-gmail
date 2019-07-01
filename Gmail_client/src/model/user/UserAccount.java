@@ -7,11 +7,22 @@ public class UserAccount implements Serializable {
     private String name;
     private String lastName;
     private String userName;
+    private String phoneNumber;
+    private String gender;
 //    /+++++ use interfaces
     //+++++ which things should be transient?
     // don't think that these two should be trnasient
-    private transient String password;
-    private transient LocalDate birthDate;
+    private String password;
+
+    private LocalDate birthDate;
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public UserAccount(String userName, String password) {
         this.userName = userName;

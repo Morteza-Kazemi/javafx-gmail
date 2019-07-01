@@ -6,27 +6,18 @@ import model.user.UserAccount;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
-//++++++++++ vaghti ye socket baste mishe mige socket is closed va baadesh dg nemishe ye nafar dige roo in ip o port vasl beshe be server
 public class Server implements Runnable {
     public static HashSet<User> usersList = new HashSet<>();//a good and fast hashcode method is implemented.
-
-    public static final String DATABASE_USERS = "src\\main\\java\\database\\allUsers.txt";
-
     static{
         try (
-//                FileOutputStream outputStream = new FileOutputStream("src\\main\\java\\database\\allUsers.txt");
-//                ObjectOutputStream oos = new ObjectOutputStream(outputStream);
-                FileInputStream fileInputStream = new FileInputStream(DATABASE_USERS);
+                FileInputStream fileInputStream = new FileInputStream("database/allUsers.txt");
                 ObjectInputStream ois = new ObjectInputStream(fileInputStream);
         ) {
-//            oos.writeObject(null);
             Object o = ois.readObject();
             if(o!=null){
                 usersList = (HashSet<User>) o;
@@ -61,23 +52,20 @@ public class Server implements Runnable {
     @Override
     public void run() {
         ExecutorService exeService = Executors.newCachedThreadPool();
-        try{
-            while (!serverSocket.isClosed()){
-                //this executor service is much more efficient than the classic way.
-                try {
-                    exeService.execute(new ServerRunner(serverSocket.accept()));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        while (!serverSocket.isClosed()){
+            //this executor service is much more efficient than the classic way.
+            try {
+                exeService.execute(new ServerRunner(serverSocket.accept()));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }finally {
-            saveToDatabase(usersList);
         }
+        saveToDatabase(usersList);
     }
 
-    public static void saveToDatabase(HashSet<User> usersList) {
+    private void saveToDatabase(HashSet<User> usersList) {
         try (
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DATABASE_USERS));
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database/allUsers.txt"));
         ) {
            oos.writeObject(usersList);
 
@@ -109,17 +97,7 @@ class ServerRunner implements Runnable{
             try {
                 Message message = (Message) objistream.readObject();
                 handle(message);
-            }
-            catch (SocketException se){
-                try {
-                    Server.saveToDatabase(Server.usersList);
-                    serverListener.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            catch (IOException | ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -127,11 +105,9 @@ class ServerRunner implements Runnable{
 
     private void handle(Message message) throws IOException {
 
-        Lock lock = new ReentrantLock();
         switch (message.getMessageType()){
             case SIGN_IN:
                 UserAccount account =  (UserAccount) message.getObject();
-                lock.lock();
                 for (User user : Server.usersList) {
                     if(user.getAccount().getUserName().equals(account.getUserName())
                             && user.getAccount().getPassword().equals(account.getPassword())){
@@ -139,15 +115,11 @@ class ServerRunner implements Runnable{
                         break;
                     }
                 }
-                lock.unlock();
                 objostream.writeObject(new Message(MessageType.REJECTED));
-                //++++ fluch after each writing in outputstreams:
-                objostream.flush();
                 break;
             case SIGN_UP://check if it was in your list of users reject the sign up message.
                 User newUser = new User((UserAccount) message.getObject());
                 Message answer;
-                lock.lock();
                 if(Server.usersList.contains(newUser)){
                     answer = new Message(MessageType.REJECTED);
                 }
@@ -157,7 +129,6 @@ class ServerRunner implements Runnable{
                     System.out.println("signup completed");
                     System.out.flush();
                 }
-                lock.unlock();
                 objostream.writeObject(answer);
                 objostream.flush();
                 break;

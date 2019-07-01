@@ -4,8 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import model.Connection;
-import model.PageLoader;
+
 
 import java.io.IOException;
 import java.net.Socket;
@@ -20,9 +19,12 @@ public class serverIPSetter {
     @FXML
     public TextField port_textField;
 
+    public static Connection connection;
+
     public void setIP(ActionEvent actionEvent) {
             try {
                 clientSocket = new Socket(serverIPSetter_textField.getText(),Integer.parseInt(port_textField.getText()));
+                 connection = new Connection();
                 new PageLoader().load("User_login");
             } catch (IOException e) {
                 e.printStackTrace();

@@ -3,12 +3,15 @@ package model.user;
 
 import model.messaging.Conversation;
 
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 public class User implements Serializable {
+    private static final long SerialVersionUID=10L;
+
+
+
     //++++++++ hmmm how to use polymorphism???
 
     @Override
@@ -25,6 +28,7 @@ public class User implements Serializable {
     }
 
     private String address;
+    private String imageFileName;
     private UserAccount account;
     private List<Conversation> conversations;
 

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserSignUpExtras">
    <left>
       <AnchorPane prefHeight="174.0" prefWidth="186.0" BorderPane.alignment="CENTER" />
    </left>
@@ -24,8 +24,8 @@
          <children>
             <TextField fx:id="phone_textField" promptText="phone number(optional)" />
             <TextField fx:id="gender_textField" promptText="gender(optional)(Male/Female/Other)" />
-            <Button mnemonicParsing="false" onAction="#choosePhoto_button" text="chose pofile photo" />
-            <Button mnemonicParsing="false" onAction="#signUp_button" text="sign up!" />
+            <Button fx:id="choose_button" mnemonicParsing="false" onAction="#choosePhoto_button" text="chose pofile photo" />
+            <Button fx:id="signUp_button" mnemonicParsing="false" onAction="#signUp_button" text="sign up!" />
          </children>
       </VBox>
    </center>

@@ -2,14 +2,12 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import model.PageLoader;
 import model.messaging.Message;
 import model.messaging.MessageType;
 import model.user.User;
 import model.user.UserAccount;
 
 import java.io.*;
-import java.net.Socket;
 import java.time.LocalDate;
 import java.util.Calendar;
 
@@ -29,18 +27,11 @@ public class UserSignUp {
     @FXML
     public Label invalid_label;
 
-    ObjectOutputStream outputStreamToServer;
-    ObjectInputStream inputStreamFromServer;
+    private ObjectOutputStream outputStreamToServer = Connection.getOos();
+    private ObjectInputStream inputStreamFromServer = Connection.getOis();
 
-    {
-        try {
-            outputStreamToServer = new ObjectOutputStream(serverIPSetter.clientSocket.getOutputStream());
-            inputStreamFromServer = new ObjectInputStream(serverIPSetter.clientSocket.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private final int ACCEPTABE_AGE = 13;
+    //+++++++++ change this LOL
+    private final int ACCEPTABE_AGE = 0;
 
 
 
@@ -48,7 +39,7 @@ public class UserSignUp {
         private void validate() throws IOException, ClassNotFoundException {
         String password = password_passwordField.getText();
         LocalDate birthday = birthDay_datePicker.getValue();
-
+        UserAccount newAccount;
         if(!passwordIsStrong(password)){//password strength can be evaluated here so no need to send it to the server.
             invalid_label.setText("password not strong enough");
             invalid_label.setVisible(true);
@@ -58,7 +49,7 @@ public class UserSignUp {
             invalid_label.setVisible(true);
         }
         else{
-            UserAccount newAccount = new UserAccount
+            newAccount = new UserAccount
                     (name_textField.getText(),lastName_textField.getText(),username_textField.getText(),birthday,password_passwordField.getText());
             Message signUpMsg = new Message(MessageType.SIGN_UP,newAccount);
             outputStreamToServer.writeObject(signUpMsg);
@@ -68,6 +59,7 @@ public class UserSignUp {
                 invalid_label.setVisible(true);
             }
             else{
+                controller.workingUser = new User(newAccount);
                 new PageLoader().load("User_signUp_extras");
             }
         }
