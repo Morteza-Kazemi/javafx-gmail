@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -16,9 +17,14 @@
       </AnchorPane>
    </center>
    <left>
-      <VBox prefHeight="400.0" prefWidth="206.0" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="242.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#showConversations" prefHeight="45.0" prefWidth="202.0" text="show conversations" />
+            <ImageView fx:id="profilePhoto_imageView" fitHeight="107.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="10.0" layoutY="131.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#compose" prefHeight="47.0" prefWidth="242.0" text="compose" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showConversations" prefHeight="47.0" prefWidth="242.0" text="inbox" />
+            <Button layoutX="10.0" layoutY="164.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showStarredConversations" prefHeight="47.0" prefWidth="242.0" text="starred" />
+            <Button layoutX="10.0" layoutY="164.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showDrafts" prefHeight="47.0" prefWidth="242.0" text="drafts" />
+            <Button layoutX="10.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showSettings" prefHeight="47.0" prefWidth="242.0" text="settings" />
          </children>
       </VBox>
    </left>

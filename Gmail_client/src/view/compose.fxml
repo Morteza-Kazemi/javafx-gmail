@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.compose">
+   <top>
+      <AnchorPane maxHeight="300.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="875.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="251.0" prefWidth="136.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="251.0" prefWidth="145.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="76.0" prefWidth="768.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutY="47.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="564.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="adress_textfield" prefHeight="41.0" prefWidth="425.0" promptText="adress :" />
+            <TextField fx:id="subject_textfield" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="425.0" promptText="subject :" />
+            <TextArea fx:id="textArea" prefHeight="245.0" prefWidth="564.0" promptText="text :" />
+            <HBox prefHeight="32.0" prefWidth="564.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#send" text="send" />
+                  <Button mnemonicParsing="false" onAction="#attach" text="attach a file" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

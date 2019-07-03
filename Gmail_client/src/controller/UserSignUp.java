@@ -47,25 +47,28 @@ public class UserSignUp {
         else if(!ageIsAcceptable(birthday)){
             invalid_label.setText("your age is under "+ACCEPTABE_AGE);
             invalid_label.setVisible(true);
+            validate();
         }
         else{
-            newAccount = new UserAccount
-                    (name_textField.getText(),lastName_textField.getText(),username_textField.getText(),birthday,password_passwordField.getText());
-            Message signUpMsg = new Message(MessageType.SIGN_UP,newAccount);
+            User newUser = new User(new UserAccount
+                    (name_textField.getText(),lastName_textField.getText(),username_textField.getText(),birthday,password_passwordField.getText())
+            );
+            Message signUpMsg = new Message(MessageType.SIGN_UP,newUser);
             outputStreamToServer.writeObject(signUpMsg);
+            outputStreamToServer.flush();
             Message answer = (Message) inputStreamFromServer.readObject();
             if(answer.getMessageType().equals(MessageType.REJECTED)){
                 invalid_label.setText("invalid username");
                 invalid_label.setVisible(true);
             }
             else{
-                controller.workingUser = new User(newAccount);
+                Connection.setConnectedUser(newUser);
                 new PageLoader().load("User_signUp_extras");
             }
         }
     }
     //+++++++++++ be careful there may be different classes in  server and client side! check it at the end.
-    private boolean passwordIsStrong(String password){
+    public static boolean passwordIsStrong(String password){
         if(password.length()<8){
             return false;
         }

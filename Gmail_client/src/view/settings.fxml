@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Settings">
+   <left>
+      <AnchorPane prefHeight="192.0" prefWidth="56.0" BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <AnchorPane prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <AnchorPane prefHeight="192.0" prefWidth="65.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="75.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutY="30.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="70.0" text="back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="249.0" prefWidth="479.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="108.0" layoutY="14.0" prefHeight="214.0" prefWidth="263.0" spacing="5.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="108.0">
+               <children>
+                  <PasswordField fx:id="passwordField" promptText="new password" />
+                  <TextField fx:id="phone_textField" promptText="new phone number" />
+                  <TextField fx:id="gender_textField" layoutX="10.0" layoutY="10.0" promptText="new gender (Male/Female)" />
+                  <TextField fx:id="name_textField" layoutX="10.0" layoutY="41.0" promptText="new name" />
+                  <TextField fx:id="lastName_textField" layoutX="10.0" layoutY="72.0" promptText="new last name" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <Button mnemonicParsing="false" onAction="#choosePhoto" text="new profile photo" />
+                  <Button layoutX="10.0" layoutY="154.0" mnemonicParsing="false" onAction="#setInformation" text="change" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -4,17 +4,37 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class UserAccount implements Serializable {
+    private static final long serialVersionUID = 2L;
     private String name;
     private String lastName;
     private String userName;
     private String phoneNumber;
     private String gender;
-//    /+++++ use interfaces
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    private byte[] profilePhotoBArr;
+    private String password;
+    private LocalDate birthDate;
+
+    //    /+++++ use interfaces
     //+++++ which things should be transient?
     // don't think that these two should be trnasient
-    private String password;
 
-    private LocalDate birthDate;
+
+    public byte[] getProfilePhotoBArr() {
+        return profilePhotoBArr;
+    }
+
+    public void setProfilePhotoBArr(byte[] profilePhotoBArr) {
+        this.profilePhotoBArr = profilePhotoBArr;
+    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;

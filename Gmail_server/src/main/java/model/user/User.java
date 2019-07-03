@@ -1,6 +1,5 @@
 package model.user;
 
-
 import model.messaging.Conversation;
 
 import java.io.Serializable;
@@ -8,12 +7,17 @@ import java.util.List;
 import java.util.Objects;
 
 public class User implements Serializable {
-    private static final long SerialVersionUID=10L;
+    public User(String address) {
+        this.address = address;
+    }
 
+    public void setConversations(List<Conversation> conversations) {
+        this.conversations = conversations;
+    }
 
+    private static final long SerialVersionUID = 10L;
 
     //++++++++ hmmm how to use polymorphism???
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -28,12 +32,11 @@ public class User implements Serializable {
     }
 
     private String address;
-    private String imageFileName;
     private UserAccount account;
     private List<Conversation> conversations;
 
     public User(UserAccount account) {
-        this.address = account.getUserName()+"@gmail.com";
+        this.address = account.getUserName() + "@gmail.com";
         this.account = account;
     }
 

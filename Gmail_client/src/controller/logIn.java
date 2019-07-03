@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.messaging.Message;
 import model.messaging.MessageType;
+import model.user.User;
 import model.user.UserAccount;
 
 import java.io.*;
@@ -21,20 +22,18 @@ public class logIn {
 
     public void logIn(ActionEvent actionEvent) {
         try {
-            System.out.println("here arrived");
 //            serverIPSetter.clientSocket = new Socket("localhost",8888);
-            ObjectOutputStream objostreamToServer = Connection.getOos();
-            System.out.println("here2");
-            ObjectInputStream objistreamFromServer = Connection.getOis();
+            ObjectOutputStream oos = Connection.getOos();
+            ObjectInputStream ois = Connection.getOis();
             UserAccount account = new UserAccount(username_textField.getText(),password_passwordField.getText());
             //send the info to the server inorder to check if the username and password are valid.
-            objostreamToServer.writeObject(new Message(MessageType.SIGN_IN,account));
-            objostreamToServer.flush();
-            System.out.println("here3");
-            Message respond = (Message) objistreamFromServer.readObject();
-            System.out.println("here4");
+            oos.writeObject(new Message(MessageType.SIGN_IN,account));
+            oos.flush();
+            Message respond = (Message) ois.readObject();
             if(respond.getMessageType().equals(MessageType.ACCEPTED)){
-                System.out.println("here5");
+                System.out.println("login accepted");
+                Connection.setConnectedUser((User) respond.getObject());
+//                System.out.println("profile photo file : "+Connection.getConnectedUser().getAccount().getProfilePhotoBArr().length);
                 new PageLoader().load("homePage");
             }
             else{

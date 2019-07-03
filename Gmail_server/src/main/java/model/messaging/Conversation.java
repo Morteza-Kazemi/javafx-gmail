@@ -1,8 +1,6 @@
 package model.messaging;
 
-
 import model.user.User;
-
 import java.util.ArrayList;
 
 public class Conversation {
