@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.messagesInAConv.MessagesInAConv">
+   <center>
+      <AnchorPane prefHeight="235.0" prefWidth="483.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="231.0" prefWidth="484.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#loadMessages" text="locad messages" />
+                  <ListView fx:id="messages_listView" prefHeight="240.0" prefWidth="481.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="58.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="182.0" prefWidth="60.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AnchorPane prefHeight="182.0" prefWidth="59.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="55.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutY="22.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="81.0" text="back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+         </children></AnchorPane>
+   </bottom>
+</BorderPane>

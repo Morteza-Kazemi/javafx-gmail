@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="110.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="-2.0" prefHeight="118.0" prefWidth="779.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="174.0">
+               <children>
+                  <Label prefHeight="37.0" prefWidth="185.0" text="   from :" />
+                  <Label fx:id="sender_label" prefHeight="79.0" prefWidth="181.0" text="   sender" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="reply" />
+                  <Button mnemonicParsing="false" text="forward" />
+                  <Button mnemonicParsing="false" text="delete" />
+                  <Button mnemonicParsing="false" text="starred" />
+               </children>
+            </VBox>
+            <Label fx:id="text_label" prefHeight="128.0" prefWidth="505.0" text="text label" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

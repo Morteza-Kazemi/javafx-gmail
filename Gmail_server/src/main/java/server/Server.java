@@ -3,6 +3,8 @@ package server;
 import model.user.User;
 import java.io.*;
 import java.net.ServerSocket;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,6 +24,7 @@ public class Server implements Runnable {
                 ObjectInputStream ois = new ObjectInputStream(fileInputStream);
         ) {
 //            oos.writeObject(null);
+//            System.out.println("null written");
             Object o = ois.readObject();
             if(o!=null){
                 usersList = (HashSet<User>) o;
@@ -53,6 +56,7 @@ public class Server implements Runnable {
     }
 
 
+
     @Override
     public void run() {
         ExecutorService exeService = Executors.newCachedThreadPool();
@@ -61,21 +65,24 @@ public class Server implements Runnable {
                 //this executor service is much more efficient than the classic way.
                 try {
                     exeService.execute(new ServerRunner(serverSocket.accept()));
+                    System.out.println("user connected");
+                    ServerRunner.printCurrentTime();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }finally {
             saveToDatabase(usersList);
+            System.out.printf("users saved to db");
         }
     }
 
+    //*****
     public static void saveToDatabase(HashSet<User> usersList) {
         try (
                 ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(DATABASE_USERS));
         ) {
            oos.writeObject(usersList);
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }

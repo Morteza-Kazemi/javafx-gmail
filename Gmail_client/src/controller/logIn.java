@@ -10,6 +10,7 @@ import model.messaging.MessageType;
 import model.user.User;
 import model.user.UserAccount;
 
+
 import java.io.*;
 
 public class logIn {
@@ -30,6 +31,7 @@ public class logIn {
             oos.writeObject(new Message(MessageType.SIGN_IN,account));
             oos.flush();
             Message respond = (Message) ois.readObject();
+            System.out.println(respond.getMessageType());
             if(respond.getMessageType().equals(MessageType.ACCEPTED)){
                 System.out.println("login accepted");
                 Connection.setConnectedUser((User) respond.getObject());

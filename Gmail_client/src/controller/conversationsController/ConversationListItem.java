@@ -20,3 +20,4 @@ public class ConversationListItem extends ListCell<Conversation> {
 
     }
 }
+

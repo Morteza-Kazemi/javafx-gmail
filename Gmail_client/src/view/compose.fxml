@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.compose">
    <top>
       <AnchorPane maxHeight="300.0" maxWidth="900.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="875.0" BorderPane.alignment="CENTER" />
@@ -20,7 +19,7 @@
    <bottom>
       <AnchorPane prefHeight="76.0" prefWidth="768.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutY="47.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Button layoutY="47.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="112.0" text="back" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
          </children>
       </AnchorPane>
    </bottom>

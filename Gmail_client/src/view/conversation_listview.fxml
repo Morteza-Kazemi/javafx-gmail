@@ -7,11 +7,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="root" prefHeight="58.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#show_messagesOfConversation" prefHeight="97.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="subject_label" layoutX="105.0" layoutY="5.0" prefHeight="77.0" prefWidth="131.0" text="Label" />
-      <ImageView fx:id="contact_imageView" fitHeight="69.0" fitWidth="79.0" layoutX="11.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="296.0" layoutY="5.0" mnemonicParsing="false" text="delete" />
-      <Button layoutX="295.0" layoutY="44.0" mnemonicParsing="false" text="important" />
+      <HBox prefHeight="94.0" prefWidth="696.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="contact_imageView" fitHeight="103.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="sender_label" prefHeight="109.0" prefWidth="65.0" text="sender" />
+            <Label fx:id="reciever_label" prefHeight="107.0" prefWidth="70.0" text="reciever" />
+            <Label fx:id="subject_label" prefHeight="97.0" prefWidth="125.0" text="subject" />
+            <Label fx:id="text_label" layoutX="427.0" layoutY="10.0" prefHeight="92.0" prefWidth="119.0" text="text" />
+            <Label fx:id="time_label" layoutX="305.0" layoutY="10.0" prefHeight="92.0" prefWidth="134.0" text="time" />
+            <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="101.0" spacing="1.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" text="delete" />
+                  <Button mnemonicParsing="false" text="important" />
+                  <Button layoutX="60.0" layoutY="41.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" text="unread" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

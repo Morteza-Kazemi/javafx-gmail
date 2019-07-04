@@ -1,9 +1,9 @@
 package model.user;
 
-
 import model.messaging.Conversation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,6 +16,10 @@ public class User implements Serializable {
         this.conversations = conversations;
     }
 
+    public void addConversation(Conversation conversation){
+        this.conversations.add(conversation);
+    }
+    
     private static final long SerialVersionUID = 10L;
 
     //++++++++ hmmm how to use polymorphism???
@@ -34,7 +38,8 @@ public class User implements Serializable {
 
     private String address;
     private UserAccount account;
-    private List<Conversation> conversations;
+    //++++++ there could be a comparator based on time that sorts the list before showing...
+    private List<Conversation> conversations = new ArrayList<>();
 
     public User(UserAccount account) {
         this.address = account.getUserName() + "@gmail.com";

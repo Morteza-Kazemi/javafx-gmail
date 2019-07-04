@@ -1,11 +1,12 @@
 package model.messaging;
 
-
 import model.user.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Conversation {
+public class Conversation implements Serializable {
+    static final long serialVersionUID = 3L;
     //++++++ which lists should be thread-safe?????
     //++++ make almost everything in every class private.
     private ArrayList<Message> messagess;

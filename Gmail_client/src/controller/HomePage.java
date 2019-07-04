@@ -4,7 +4,8 @@ import controller.conversationsController.ConversationListItem;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.image.ImageView;
 import model.messaging.Conversation;
 
@@ -15,6 +16,8 @@ import model.user.User;
 
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,26 +27,38 @@ public class HomePage {
     @FXML
     ListView<Conversation> conversations_listview;
     @FXML
-    ImageView profilePhoto_imageView ;
+    ImageView profilePhoto_imageView;
 
+    public static SelectionModel<Conversation> convSelectionModel;
     //++++++ this should be available here...
     List<Conversation> convList = new ArrayList<>();
     User currentUser = Connection.getConnectedUser();
+    ObjectOutputStream oos = Connection.getOos();
+    ObjectInputStream ois = Connection.getOis();
 
     //++++ this is just for testing the application:
     Conversation temp = new Conversation();
-
-    public void showConversations() {
+    public void showConversations() throws IOException, ClassNotFoundException {
         //+++ this is for a temporary test.
-        initializeTestConversationList();
+//        initializeTestConversationList();
+        oos.writeObject(new Message(MessageType.GET_CONVERSATIONS, currentUser));
+        oos.flush();
+        Message readObject = (Message) ois.readObject();
+        List<Conversation> list = (List<Conversation>) (readObject.getObject());
+        currentUser.setConversations(list);
+        System.out.println("conversations length of " + currentUser.getAddress() + currentUser.getConversations().size());
         conversations_listview.setItems(FXCollections.observableArrayList(currentUser.getConversations()));
         conversations_listview.setCellFactory(conversationListView -> new ConversationListItem());
+        convSelectionModel = conversations_listview.getSelectionModel();
+//++++++    convSelectionModel.setSelectionMode(SelectionMode.SINGLE);
+
         //++++++ shows profile photo:
 //        String uri = Connection.getConnectedUser().getAccount().getProfilePhotoFile().toURI().toString();
 //        profilePhoto_imageView.setImage(new Image(uri));
     }
 
-    public void initializeTestConversationList(){
+
+    public void initializeTestConversationList() {
         Conversation conv1 = new Conversation();
         Message message1 = new Message(MessageType.MAIL);
         message1.setSubject("this is first subject!");

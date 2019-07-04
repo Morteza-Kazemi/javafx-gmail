@@ -50,8 +50,11 @@ public class UserSignUpExtras {
             e.printStackTrace();
         }
         //*****
-        workingAccount.setProfilePhotoBArr(Files.readAllBytes(photoFile.toPath()));
+        if(photoFile!=null) {
+            workingAccount.setProfilePhotoBArr(Files.readAllBytes(photoFile.toPath()));
+        }
         ObjectOutputStream oosToServer = Connection.getOos();
+
         try {
             System.out.println(connectedUser.getAccount().getProfilePhotoBArr().length);
             System.out.println(connectedUser.getAccount().getPhoneNumber());
@@ -62,5 +65,6 @@ public class UserSignUpExtras {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
