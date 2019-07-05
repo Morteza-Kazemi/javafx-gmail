@@ -19,7 +19,7 @@ public class UserAccount implements Serializable {
         return gender;
     }
 
-    private byte[] profilePhotoBArr;
+    public byte[] profilePhotoBArr;
     private String password;
     private LocalDate birthDate;
 

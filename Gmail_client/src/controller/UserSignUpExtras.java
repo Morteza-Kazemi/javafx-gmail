@@ -12,12 +12,11 @@ import model.messaging.MessageType;
 import model.user.User;
 import model.user.UserAccount;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 
 public class UserSignUpExtras {
@@ -27,7 +26,7 @@ public class UserSignUpExtras {
     @FXML public TextField gender_textField;
 
 
-    private File photoFile = new File("resources/undefined.png");
+    private File photoFile = null;
     //akse maskhsare he;
     public void choosePhoto_button(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -36,30 +35,34 @@ public class UserSignUpExtras {
         if(photoFile == null){
             new Alert(Alert.AlertType.ERROR).showAndWait();
         }
+        System.out.println("photo was chosen");
     }
 
     public void signUp_button(ActionEvent actionEvent) throws IOException {
-//++++++++++++ ye online user negah dar ke be ezaye har user yedunast(vase har thread yebar new mishe faghat havaset be thread pooledt bashe)
+        ObjectOutputStream oosToServer = Connection.getOos();
         User connectedUser = Connection.getConnectedUser();
         UserAccount workingAccount = connectedUser.getAccount();
         workingAccount.setGender(gender_textField.getText());
         workingAccount.setPhoneNumber(phone_textField.getText());
+        System.out.println("phone "+ phone_textField.getText());
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         //*****
         if(photoFile!=null) {
-            workingAccount.setProfilePhotoBArr(Files.readAllBytes(photoFile.toPath()));
+            connectedUser.setProfilePhotoBArr(Files.readAllBytes(photoFile.toPath()));
         }
-        ObjectOutputStream oosToServer = Connection.getOos();
-
+        //*****
+        else{
+            connectedUser.setProfilePhotoBArr(Files.readAllBytes(Paths.get("../resources/undefined.png")));
+        }
         try {
-            System.out.println(connectedUser.getAccount().getProfilePhotoBArr().length);
+            Connection.setConnectedUser(connectedUser);
+            System.out.println("last bullet "+Connection.getConnectedUser().getAccount().getProfilePhotoBArr().length);
             System.out.println(connectedUser.getAccount().getPhoneNumber());
             oosToServer.writeObject(new Message(MessageType.SAVE_USER, connectedUser));
-            oosToServer.flush();
             oosToServer.flush();
             new PageLoader().load("User_login");
         } catch (IOException e) {

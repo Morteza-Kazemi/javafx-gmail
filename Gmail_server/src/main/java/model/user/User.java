@@ -3,12 +3,12 @@ package model.user;
 import model.messaging.Conversation;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class User implements Serializable {
+    private static final long serialVersionUID = 5L;
     public User(String address) {
         this.address = address;
     }
@@ -57,5 +57,9 @@ public class User implements Serializable {
 
     public List<Conversation> getConversations() {
         return conversations;
+    }
+
+    public void setProfilePhotoBArr(byte[] bytes) {
+        this.account.setProfilePhotoBArr(bytes);
     }
 }

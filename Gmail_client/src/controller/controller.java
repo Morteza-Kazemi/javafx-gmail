@@ -37,9 +37,6 @@ public class controller extends Application {
     public void stop() throws IOException {
         ObjectOutputStream oos = Connection.getOos();
         oos.writeObject(new Message(MessageType.SAVE_USER,Connection.getConnectedUser()));
-        //*****
-        Connection.getOis().close();
-        Connection.getOos().close();
     }
 
 

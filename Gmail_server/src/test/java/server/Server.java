@@ -18,13 +18,13 @@ public class Server implements Runnable {
 
     static{
         try (
-//                FileOutputStream outputStream = new FileOutputStream("src\\main\\java\\database\\allUsers.txt");
-//                ObjectOutputStream oos = new ObjectOutputStream(outputStream);
+                FileOutputStream outputStream = new FileOutputStream("src\\main\\java\\database\\allUsers.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(outputStream);
                 FileInputStream fileInputStream = new FileInputStream(DATABASE_USERS);
                 ObjectInputStream ois = new ObjectInputStream(fileInputStream);
         ) {
-//            oos.writeObject(null);
-//            System.out.println("null written");
+            oos.writeObject(null);
+            System.out.println("null written");
             Object o = ois.readObject();
             if(o!=null){
                 usersList = (CopyOnWriteArrayList<User>) o;

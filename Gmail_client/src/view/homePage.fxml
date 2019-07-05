@@ -14,7 +14,18 @@
          <children>
             <VBox layoutX="-1.0" prefHeight="597.0" prefWidth="699.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showConversations" text="refresh" />
+                  <HBox prefHeight="27.0" prefWidth="699.0" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#showConversations" text="refresh" />
+                        <HBox prefHeight="31.0" prefWidth="516.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#search" text="search" />
+                              <TextField fx:id="usernameSearch_textfield" prefHeight="31.0" prefWidth="244.0" promptText="search through username" />
+                              <TextField fx:id="subjSearch_textfield" prefHeight="31.0" prefWidth="170.0" promptText="search through subject" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <ListView fx:id="conversations_listview" prefHeight="527.0" prefWidth="557.0" />
                </children>
             </VBox>
