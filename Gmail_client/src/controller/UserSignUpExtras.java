@@ -38,11 +38,12 @@ public class UserSignUpExtras {
         System.out.println("photo was chosen");
     }
 
-    public void signUp_button(ActionEvent actionEvent) throws IOException {
+    public void signUp_button(ActionEvent actionEvent) throws IOException, InterruptedException {
         ObjectOutputStream oosToServer = Connection.getOos();
         User connectedUser = Connection.getConnectedUser();
         UserAccount workingAccount = connectedUser.getAccount();
         workingAccount.setGender(gender_textField.getText());
+        System.out.println(gender_textField.getText()+"gender");
         workingAccount.setPhoneNumber(phone_textField.getText());
         System.out.println("phone "+ phone_textField.getText());
         try {
@@ -56,14 +57,19 @@ public class UserSignUpExtras {
         }
         //*****
         else{
+            System.out.println("photo was null");
             connectedUser.setProfilePhotoBArr(Files.readAllBytes(Paths.get("../resources/undefined.png")));
         }
         try {
             Connection.setConnectedUser(connectedUser);
             System.out.println("last bullet "+Connection.getConnectedUser().getAccount().getProfilePhotoBArr().length);
             System.out.println(connectedUser.getAccount().getPhoneNumber());
-            oosToServer.writeObject(new Message(MessageType.SAVE_USER, connectedUser));
+            Thread.sleep(1000);
+            oosToServer.writeObject(new Message(MessageType.SAVE_EXTRAS,connectedUser.getAccount().getUserName(),
+                    connectedUser.getAccount().getPhoneNumber() , connectedUser.getAccount().getGender()
+                    ,connectedUser.getAccount().getProfilePhotoBArr()));
             oosToServer.flush();
+            Thread.sleep(1000);
             new PageLoader().load("User_login");
         } catch (IOException e) {
             e.printStackTrace();

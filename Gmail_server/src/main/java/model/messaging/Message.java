@@ -14,7 +14,8 @@ public class Message implements Serializable {
     private String text;
     private LocalDateTime date;
     private String subject;
-    private byte[] attackedFileBArr;
+    private byte[] attachedFileBArr;
+    private User user;
 
     public User getSender() {
         return sender;
@@ -40,12 +41,12 @@ public class Message implements Serializable {
         this.date = date;
     }
 
-    public byte[] getAttackedFileBArr() {
-        return attackedFileBArr;
+    public byte[] getAttachedFileBArr() {
+        return attachedFileBArr;
     }
 
-    public void setAttackedFileBArr(byte[] attackedFileBArr) {
-        this.attackedFileBArr = attackedFileBArr;
+    public void setAttachedFileBArr(byte[] attachedFileBArr) {
+        this.attachedFileBArr = attachedFileBArr;
     }
 
     public void setObject(Object object) {
@@ -62,7 +63,7 @@ public class Message implements Serializable {
         this.text = text;
         this.date = date;
         this.subject = subject;
-        this.attackedFileBArr = attackedFileBArr;
+        this.attachedFileBArr = attackedFileBArr;
         this.messageType = messageType;
     }
 
@@ -93,6 +94,25 @@ public class Message implements Serializable {
     public Message(MessageType messageType, Object object){//this is used for sign up messages
         this.messageType = messageType;
         this.object = object;
+    }
+
+    public Message(MessageType messageType, User user, Object o){
+        this.user = user;
+        this.messageType = messageType;
+    }
+
+    public Message(MessageType messageType,String userName,String phone , String gender , byte[] bytes){
+        this.messageType = messageType;
+        this.text =userName + "&" + phone + "&"+ gender;
+        this.attachedFileBArr = bytes;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

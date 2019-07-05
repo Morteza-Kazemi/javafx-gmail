@@ -1,14 +1,10 @@
 package controller.messagesInAConv;
 
-import controller.controller;
 import controller.PageLoader;
-import controller.messagesInAConv.MessagesListItem;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
 import model.messaging.Conversation;
 import model.messaging.Message;
 import model.messaging.MessageType;
@@ -23,7 +19,7 @@ public class MessagesInAConv {
     @FXML
     ListView<Message> messages_listView;
 
-    public Conversation selectedConv = new Conversation();
+    public static Conversation selectedConv = new Conversation();
 
 
     public void loadMessages(ActionEvent actionEvent) {

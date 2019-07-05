@@ -34,4 +34,8 @@ public class MessagesListItemController {
         sender_label.setText(message.getSender().getAddress());
         return root;
     }
+
+//    public void reply(ActionEvent actionEvent) {
+//        new Page
+//    }
 }

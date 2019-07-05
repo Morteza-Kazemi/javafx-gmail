@@ -19,9 +19,9 @@
             <Label fx:id="time_label" layoutX="305.0" layoutY="10.0" prefHeight="92.0" prefWidth="134.0" text="time" />
             <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="101.0" spacing="1.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" text="delete" />
-                  <Button mnemonicParsing="false" text="important" />
-                  <Button layoutX="60.0" layoutY="41.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" text="unread" />
+                  <Button mnemonicParsing="false" onAction="#deleteConv" prefHeight="31.0" prefWidth="86.0" text="delete" />
+                  <Button mnemonicParsing="false" onAction="#importantConv" text="important" />
+                  <Button layoutX="60.0" layoutY="41.0" mnemonicParsing="false" onAction="#unreadConv" prefHeight="31.0" prefWidth="86.0" text="unread" />
                </children>
             </VBox>
          </children>

@@ -1,5 +1,7 @@
 package controller.conversationsController;
 
+import controller.Connection;
+import controller.HomePage;
 import controller.PageLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -58,5 +60,15 @@ public class ConversationListItemController {
     }
     public void show_messagesOfConversation() throws IOException {
         new PageLoader().load("messagesInAConv");
+    }
+
+    public void deleteConv(){
+        Connection.getConnectedUser().removeConversation(HomePage.convSelectionModel.getSelectedItem());
+    }
+    public void importantConv(){
+//        Connection.getConnectedUser().removeConversation(HomePage.convSelectionModel.getSelectedItem());
+    }
+    public void unreadConv(){
+//        Connection.getConnectedUser().removeConversation(HomePage.convSelectionModel.getSelectedItem());
     }
 }

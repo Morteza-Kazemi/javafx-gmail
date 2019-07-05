@@ -76,7 +76,7 @@ class ServerRunner implements Runnable {
             case SAVE_USER:
                 //get the lock before using the list...
                 lock.lock();
-                User user = (User) message.getObject();
+                User user = message.getUser();
                 System.out.println("should be save "+message.getMessageType()+message.getObject());
                 //remove the previous user from list.
                 System.out.println(user.getAddress() + "user previous data removed : " + Server.usersList.remove(user));
@@ -89,11 +89,25 @@ class ServerRunner implements Runnable {
                 for (User userInList : Server.usersList) {
                     if (userInList.equals(message.getObject())) {
                         objostream.writeObject(new Message(MessageType.GET_CONVERSATIONS, userInList.getConversations()));
-                        System.out.println(userInList.getAddress() + "covs were given to client      length:" +userInList.getConversations().size() );
+                        System.out.println(userInList.getAddress() + " covs were given to client      length:" +userInList.getConversations().size() );
                         break;
                     }
                 }
                 break;
+            case SAVE_EXTRAS:
+                User myUser = null;
+                String[] texts = message.getText().split("&");
+                for (User user1 : Server.usersList) {
+                    if(user1.getAccount().getUserName().equals(texts[0]));{
+                        myUser = user1;
+                    }
+                }
+                if(myUser!=null){
+                    myUser.getAccount().setPhoneNumber(texts[1]);
+                    myUser.getAccount().setGender(texts[2]);
+                    myUser.setProfilePhotoBArr(message.getAttachedFileBArr());
+                }
+
         }
     }
 

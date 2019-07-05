@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 
 import model.messaging.Message;
 import model.messaging.MessageType;
-import model.user.User;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;

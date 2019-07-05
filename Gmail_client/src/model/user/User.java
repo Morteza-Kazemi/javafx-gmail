@@ -20,6 +20,9 @@ public class User implements Serializable {
     public void addConversation(Conversation conversation){
         this.conversations.add(conversation);
     }
+    public void removeConversation(Conversation conversation){
+        this.conversations.remove(conversation);
+    }
     
     private static final long SerialVersionUID = 10L;
 

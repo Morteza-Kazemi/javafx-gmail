@@ -21,6 +21,7 @@ public class ServerRunnerTest {
 
     User user1, user2,invalidUser;
     Socket socket1, socket2,socket3;
+
     ObjectInputStream ois1, ois2,ois3;
     ObjectOutputStream oos1, oos2,oos3;
     Message mail1, mail2;
